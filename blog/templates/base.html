@@ -6,25 +6,72 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Website</title>
+    <link rel="stylesheet" href="{% static 'base.css' %}">
+    <style>
+        .nav-left header {
+            background-color: rgb(18, 119, 202);
+            border: 1px solid grey;
+            width: 1890px;
+            padding-top: 20px;    
+            padding-left: 20px;
+        }
+        .nav-left header a {
+            color: white ;
+        }
+        .nav-left header a:hover {
+            color:coral;
+        }
+        .nav-right h2 a:hover {
+            color:blueviolet;
+            background-color: bisque;
+            transition: .5s;
+
+        }
+    
+        body {
+            background-image: url(static/back.jpg);
+            font-family: montserrat;
+            position: flex;
+            background-repeat: no-repeat;
+            background: cover/center; 
+        }
+        .nav-left p a:hover {
+            font-size: 20px;
+            transition: .2s;
+
+        }
+        .nav-left p a {
+            position: absolute;
+        }
+        .aurl-sign{
+            top: 150px;
+        }
+        .nav-left {
+            margin-left: -5px;
+            margin-top: -5px;
+            padding-bottom: 10px;
+        }
+        
+    </style>
 </head>
 <body>
-    <link href="{% static 'base.css' %}" rel="stylesheet"s>
+    
 
     <div class="nav-left">
-        <header><h1 >
-            <a href="{% url 'home' %}">Django Blog</a></h1>
+        <header><h1>
+            <a href="{% url 'home' %}" class="aurl" style="text-decoration: none;">Django Blog</a></h1>
         </header>
         {% if user.is_authenticated %}
         <p>Hi {{user.username}}</p>
-        <p><a href="{%url 'logout'%}">Log out</a></p>
+        <p><a href ="{%url 'logout'%}" class="aurl"  style="text-decoration: none;">Log out</a></p>
         {% else %}
-        <p><a href="{% url 'login' %}">Log in</a></p>
-        <p><a href="{% url 'signup' %}">Sign up</a></p>
+        <p><a href="{% url 'login' %}" class="aurl-log"  style="text-decoration: none; color:aliceblue;">Log in</a></p>
+        <p><a href="{% url 'signup' %}" class="aurl-sign"  style="text-decoration: none; color:aliceblue;">Sign up</a></p>
           
         {% endif %}
     </div>
-    <div class="nav-right">
-        <a href="{% url 'post_new' %}"><h2>+ New Blog Post</h2> </a>
+    <div class="nav-right" style="display: flex; position:relative; left:1700px; bottom:110px;">
+        <h2><a href="{% url 'post_new' %}"class="aurl" style="text-decoration: none; color:red;">+ New Blog Post</a></h2>   
     </div>
     <div>
         {% block content %}

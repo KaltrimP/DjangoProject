@@ -8,13 +8,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-  </head>
-  <body>
-    <link href="{% static 'base.css' %}" rel="stylesheet"s>
+    <link href="{% static 'base.css' %}" rel="stylesheet">
+    <style>
+      .post-entry {
+        margin: auto;
+        
+        background-color: rgb(18, 119, 202);
+        border-radius: 60px;
+        width: 30%;
+        margin-bottom: -17px;
+        border-bottom: 1px solid black;
+        text-align: center;
+      }
+      .fullback-blog {
+        background-color: aqua;
+      }
+      .post-entry a {
+        color: rgb(242, 255, 185);
+      }
+      .post-entry a:hover {
+        color: brown;
 
+      }
+      .post-entry p {
+        font-size: 20px;
+        color:white;
+      }
+    </style>
+  </head>
+  <body>   
      {% for post in object_list  %}
         <div class="post-entry">
-            <h2><a href="{% url 'post_detail' post.pk %}">{{post.title}}</a></h2>
+            <h2><a href ="{% url 'post_detail' post.pk %}" class="aurl" style="text-decoration: none;">{{post.title}}</a></h2>
             <p>{{post.body}}</p>
         </div>
     {% endfor %}

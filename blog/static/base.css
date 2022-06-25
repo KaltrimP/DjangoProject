@@ -1,11 +1,4 @@
-.nav-left {
+a {
     color: red;
-    margin-right: auto;
-    
-    
-    
-}
-.nav-right{
-    display: flex;
-    padding-top: 2rem;
+    text-decoration: none;
 }
